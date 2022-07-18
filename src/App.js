@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import './App.css'
 
 function App() {
+  // const [loading,setLoading]=useState(false)
+  const [advice, setAdvice] = useState('')
+
+  //**fetching Advices from Api */
+
+  const fetchAdvice = () => {
+    // setLoading(true)
+    axios.get('https://api.adviceslip.com/advice')
+      .then((response) => {
+        const advice = response.data.slip.advice;
+        setAdvice(advice)
+      })
+      // setLoading(false)
+      .catch((error) => {
+        // setLoading(false)
+        console.log(error);
+      })
+
+  }
+
+  useEffect(() => {
+    fetchAdvice();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div className='app'>
+      <div className='card'>
+        <h1>{advice}</h1>
+ 
+        <button type='submit' className='btn' onClick={fetchAdvice}><span>Give Me Advice</span></button>
+      </div>
     </div>
   );
 }
