@@ -31,7 +31,7 @@ function App() {
 
     <div className='app'>
       <div className='card'>
-        <h1>{advice}</h1>
+        <h1 className='heading'>{advice}</h1>
  
         <button type='submit' className='btn' onClick={fetchAdvice}><span>Give Me Advice</span></button>
       </div>
