@@ -118,13 +118,13 @@ body {
 @media only screen and (max-width: 600px) {
   .card {
       width: 80%;
-      height: 30%;
+      height: 40%;
   }
 }
 @media only screen and (max-width: 450px) {
   .card {
       width: 90%;
-      height: 40%;
+      height: 50%;
   }
 }
 @media only screen and (max-width: 200px) {
